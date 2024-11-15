@@ -38,6 +38,7 @@
 
                     success: function (data) {
                     $("#roomRate").text(data.Rate);
+                    console.log(data.Rate);
                    },
                    error: function (xhr) {
                        alert(xhr.message);
