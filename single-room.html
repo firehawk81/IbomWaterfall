@@ -12,9 +12,58 @@
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/ibw-logo.png">
 
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          rel="stylesheet" />-->
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
+          rel="stylesheet" />-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"> </script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js">
+    </script>-->
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <!--<script src="assets/js/jquery-3.7.1.min.js"></script>-->
 
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var id = (new URL(location.href)).searchParams.get('id');
+            $( window ).on( "load", function() {
+                $.ajax({
+                    contentType: 'GET',
+                    url: 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/api/RoomDetails/'+id,
+                    dataType: 'json',
+                    success: function (data) {
+
+                        $.each(data, function (key, val) {
+                            var row = '<h2>' + val.roomRate + '</h2>';
+                            $('<h2/>', { html: row })  // Append the name.
+                            .appendTo($('#divBody'));
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    <!--<script type="text/javascript">
+        (function($) {
+            $.QueryString = (function(a) {
+                if (a == "") return {};
+                var b = {};
+                for (var i = 0; i < a.length; ++i) {
+                    var p=a[i].split('=');
+                    if (p.length != 2) continue;
+                    b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                }
+                return b;
+            })(window.location.search.substr(1).split('&'))
+            })(jQuery);
+            // Usage
+        var param = jQuery.QueryString["param"];
+        console.log(param)
+        //alert(param);
+    </script>-->
 </head>
 
 <body>
@@ -130,9 +179,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-end">
                 <div class="col-12">
-                    <div class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
+                    <div id="divBody" class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
                         <h2 class="room-title">With Sunset view</h2>
-                        <h2 class="room-price">&#8358;250,000<span>/Night</span></h2>
+                        <h2 id="roomRate" class="room-price">&#8358;250,000<span>/Night</span></h2>
                     </div>
                 </div>
             </div>
