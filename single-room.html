@@ -33,7 +33,7 @@
                 $.ajax({
                     contentType: 'GET',
                     url: 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/api/RoomDetails/'+id,
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     success: function (data) {
 
                         $.each(data, function (key, val) {
