@@ -35,18 +35,13 @@
                     contentType: 'GET',
                     url: 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/api/RoomDetails/'+id,
                     dataType: 'json',
-                    success: function (data) {
 
-                        $.each(data, function (key, val) {
-                            //$('#roomRate').val(val.Rate);
-                            $("#roomRate").text(val.Rate);
-                            //html += "<h2 id='roomRate'>"+val.Rate+"</h2>";
-                           //$("#roomRate").html(value);
-                            //var row = '<h2>' + val.roomRate + '</h2>';
-                           // $('<h2/>', { html: row })  // Append the name.
-                            //.appendTo($('#divBody'));
-                        });
-                    }
+                    success: function (data) {
+                    $("#roomRate").text(data.Rate);
+                   },
+                   error: function (xhr) {
+                       alert(xhr.message);
+                   }
                 });
             });
         });
