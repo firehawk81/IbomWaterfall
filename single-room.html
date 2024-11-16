@@ -52,7 +52,8 @@
 
     </script>
     
-    <script type="text/javascript">
+
+    <!--<script type="text/javascript">
         $(function () {
             $("#btnCheckAvailability").click(function () {
                 $.ajax({
@@ -62,10 +63,10 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                       if (response.d == true) {
+                       //if (response.d == true) {
                             alert("You will now be redirected.");
-                            window.location = "//http://localhost:51014/checkout/cart.html/";
-                        }
+                            window.location = "http://localhost:51014/checkout/cart.html/";
+                        //}
                     },
                     failure: function (response) {
                         alert(response.d);
@@ -73,7 +74,12 @@
                 });
             });
         });
-    </script>
+    </script>-->
+
+
+
+
+
     <style>
         .container2 {
             height: 1500px;
