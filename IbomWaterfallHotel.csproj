@@ -160,6 +160,7 @@
     <Content Include="checkout\images\gallery_5.jpg" />
     <Content Include="checkout\images\gallery_6.jpg" />
     <Content Include="checkout\images\home_slider_1.jpg" />
+    <Content Include="checkout\images\ibw-logo.png" />
     <Content Include="checkout\images\magnifying-glass.svg" />
     <Content Include="checkout\images\master.jpg" />
     <Content Include="checkout\images\newsletter.jpg" />
