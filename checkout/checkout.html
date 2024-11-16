@@ -10,114 +10,205 @@
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="styles/checkout.css">
 <link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
-    <link rel="icon" href="../img/core-img/ibw-logo.png">
+<link rel="icon" href="../img/core-img/ibw-logo.png">
+    
+<style type="text/css">
+        .social-bg {
+            color: #0e2737;
+        }
+
+        .text-color-menu {
+            color: #0e2737;
+        }
+
+    body {
+        font-size: 14px;
+        font-family: "Moderat","Inter",sans-serif;
+        font-weight: 400;
+        color: #333;
+    }
+
+    #start-payment-button {
+        cursor: pointer;
+        position: relative;
+        background-color: #ff9b00;
+        color: #12122c;
+        max-width: 30%;
+        padding: 7.5px 16px;
+        font-weight: 500;
+        font-size: 14px;
+        border-radius: 4px;
+        border: none;
+        transition: all .1s ease-in;
+        vertical-align: middle;
+    }
+</style>
+
+
 </head>
 <body>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+    <form>
+        <div>
+            Your order is ₦2,500
+        </div>
+        <!--<button type="button" id="start-payment-button" onclick="makePayment()">Pay Now</button>-->
+    </form>
+    <script>
+          function makePayment() {
+            FlutterwaveCheckout({
+              public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
+              tx_ref: "txref-DI0NzMx13",
+              amount: 2500,
+              currency: "NGN",
+              payment_options: "card, banktransfer, ussd",
+              redirect_url: "https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/index.html",
+              meta: {
+                source: "docs-inline-test",
+                consumer_mac: "92a3-912ba-1192a",
+              },
+              customer: {
+                email: "test@mailinator.com",
+                phone_number: "08100000000",
+                name: "Ayomide Jimi-Oni",
+              },
+              customizations: {
+                title: "Ibom Waterfall Resort & Suites",
+                description: "Test Payment",
+                logo: "https://firehawk81.github.io/IbomWaterfall/checkout/images/ibw-logo.png",
+              },
+              callback: function (data){
+                console.log("payment callback:", data);
+              },
+              onclose: function() {
+                console.log("Payment cancelled!");
+              }
+            });
+          }
 
+      /*  function makePayment() {
+          FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-SANDBOXDEMOKEY-X",
+            tx_ref: "titanic-48981487343MDI0NzMx",
+            amount: 54600,
+            currency: "NGN",
+            payment_options: "card, mobilemoneyghana, ussd",
+            redirect_url: "https://glaciers.titanic.com/handle-flutterwave-payment",
+            meta: {
+              consumer_id: 23,
+              consumer_mac: "92a3-912ba-1192a",
+            },
+            customer: {
+              email: "rose@unsinkableship.com",
+              phone_number: "08102909304",
+              name: "Rose DeWitt Bukater",
+            },
+            customizations: {
+              title: "The Titanic Store",
+              description: "Payment for an awesome cruise",
+              logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+            }
+          });
+        }*/
+    </script>
 <div class="super_container">
-	
-	<!-- Header -->
-
-	<header class="header">
-		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="#">Wish</a></div>
-			<nav class="main_nav">
-				<ul>
-					<li><a href="index.html">home</a></li>
-					<li><a href="categories.html">clothes</a></li>
-					<li><a href="categories.html">accessories</a></li>
-					<li><a href="categories.html">lingerie</a></li>
-					<li><a href="contact.html">contact</a></li>
-				</ul>
-			</nav>
-			<div class="header_content ml-auto">
-				<div class="search header_search">
-					<form action="#">
-						<input type="search" class="search_input" required="required">
-						<button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
-					</form>
-				</div>
-				<div class="shopping">
-					<!-- Cart -->
-					<a href="#">
-						<div class="cart">
-							<img src="images/shopping-bag.svg" alt="">
-							<div class="cart_num_container">
-								<div class="cart_num_inner">
-									<div class="cart_num">1</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<!-- Star -->
-					<a href="#">
-						<div class="star">
-							<img src="images/star.svg" alt="">
-							<div class="star_num_container">
-								<div class="star_num_inner">
-									<div class="star_num">0</div>
-								</div>
-							</div>
-						</div>
-					</a>
-					<!-- Avatar -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
-				</div>
-			</div>
-
-			<div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
-		</div>
-	</header>
-
-	<!-- Menu -->
-
-	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<div class="logo menu_mm"><a href="#">Wish</a></div>
-		<div class="search">
-			<form action="#">
-				<input type="search" class="search_input menu_mm" required="required">
-				<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
-			</form>
-		</div>
-		<nav class="menu_nav">
-			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">home</a></li>
-				<li class="menu_mm"><a href="#">clothes</a></li>
-				<li class="menu_mm"><a href="#">accessories</a></li>
-				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="#">contact</a></li>
-			</ul>
-		</nav>
-	</div>
-
-	<!-- Home -->
-
-	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/categories.jpg" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="home_container">
-						<div class="home_content">
-							<div class="home_title">Checkout</div>
-							<div class="breadcrumbs">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="index.html">Shopping Cart</a></li>
-									<li>Shopping Cart</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="header_inner d-flex flex-row align-items-center justify-content-start">
+            <div class="logo"><a href="#"><img src="images/ibw-logo.png" height="65" /></a></div>
+            <nav class="main_nav">
+                <ul>
+                    <li><!--<a href="index.html" style="color:#0e2737;">home</a>--></li>
+                    <li><a href="categories.html" style="color:#0e2737;">Home</a></li>
+                    <li><a href="categories.html" style="color:#0e2737;">About</a></li>
+                    <li><a href="categories.html" style="color:#0e2737;">Gallery</a></li>
+                    <li><a href="facility.html" style="color:#0e2737;">Facility</a></li>
+                    <li><a href="contact.html" style="color:#0e2737;">contact</a></li>
+                </ul>
+            </nav>
+            <div class="header_content ml-auto">
+                <div class="search header_search">
+                    <form action="#">
+                        <input type="search" class="search_input" required="required">
+                        <button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
+                    </form>
+                </div>
+                <div class="shopping">
+                    <!-- Cart -->
+                    <a href="#">
+                        <div class="cart">
+                            <img src="images/shopping-bag.svg" alt="">
+                            <div class="cart_num_container">
+                                <div class="cart_num_inner">
+                                    <div class="cart_num">1</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Star -->
+                    <!--<a href="#">
+                        <div class="star">
+                            <img src="images/star.svg" alt="">
+                            <div class="star_num_container">
+                                <div class="star_num_inner">
+                                    <div class="star_num">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>-->
+                    <!-- Avatar -->
+                    <a href="#">
+                        <div class="avatar">
+                            <img src="images/avatar.svg" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
+        </div>
+    </header>
+    <!-- Menu -->
+    <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+        <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+        <div class="logo menu_mm"><a href="#"><img src="images/ibw-logo.png" height="65" /></a></div>
+        <div class="search">
+            <form action="#">
+                <input type="search" class="search_input menu_mm" required="required">
+                <button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
+            </form>
+        </div>
+        <nav class="menu_nav">
+            <ul class="menu_mm">
+                <li><!--<a href="index.html" style="color:#0e2737;">home</a>--></li>
+                <li><a href="categories.html" style="color:#0e2737;">Home</a></li>
+                <li><a href="categories.html" style="color:#0e2737;">About</a></li>
+                <li><a href="categories.html" style="color:#0e2737;">Gallery</a></li>
+                <li><a href="facility.html" style="color:#0e2737;">Facility</a></li>
+                <li><a href="contact.html" style="color:#0e2737;">contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Home -->
+    <div class="home">
+        <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/cart.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_container">
+                        <div class="home_content">
+                            <div class="home_title">Reservations</div>
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li>Rooms in Cart</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<!-- Checkout -->
 
@@ -177,35 +268,39 @@
 									<div class="cart_total_price ml-auto">Total</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
-									<div class="cart_total_title">2 Piece Swimsuit x1</div>
-									<div class="cart_total_price ml-auto">$35.00</div>
+									<div class="cart_total_title">Deluxe Room x2</div>
+									<div class="cart_total_price ml-auto">&#8358;45,000.00</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">Subtotal</div>
-									<div class="cart_total_price ml-auto">$35.00</div>
+									<div class="cart_total_price ml-auto">&#8358;45,000.00</div>
 								</li>
 								<li class="d-flex flex-row align-items-center justify-content-start">
 									<div class="cart_total_title">Shipping</div>
-									<div class="cart_total_price ml-auto">$5.00</div>
+									<div class="cart_total_price ml-auto">&#8358;5,000.00</div>
 								</li>
 								<li class="d-flex flex-row align-items-start justify-content-start total_row">
 									<div class="cart_total_title">Total</div>
-									<div class="cart_total_price ml-auto">$40.00</div>
+									<div class="cart_total_price ml-auto">&#8358;95,000.00</div>
 								</li>
 							</ul>
 						</div>
 						<div class="payment_options">
-							<div>
+							<div style="margin-bottom:17px;">
 								<input type="radio" id="radio_payment_1" name="regular_radio" class="regular_radio">
-								<label for="radio_payment_1">cash on delivery</label>
+                                <!--<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
+                                <div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>-->
+                                <div class="master payment_option"><a href="#"><img src="images/1200px-Paystack_Logo.png" height="25" alt=""></a></div>
+                                <label for="radio_payment_1"></label>
 							</div>
 							<div>
 								<input type="radio" id="radio_payment_2" name="regular_radio" class="regular_radio" checked>
-								<label for="radio_payment_2">paypal</label>
-								<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
-								<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>
+								<!--<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
+								<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>-->
+                                <div class="master payment_option"><a href="#"><img src="images/Flutterwave_Logo.png" height="40" alt=""></a></div>
+                                <label for="radio_payment_2"></label>
 							</div>
-							<button class="cart_total_button">place order</button>
+							<button id="btnPayNow" onclick="makePayment()" class="cart_total_button">Pay Now</button>
 						</div>
 					</div>
 				</div>
@@ -288,34 +383,36 @@
 			</div>
 		</div>
 	</div>
-
+    
 	<!-- Footer -->
 
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col text-center">
-					<div class="footer_logo"><a href="#">Wish</a></div>
+					<div class="footer_logo"><a href="#"><img src="images/ibw-logo.png" height="65" /></a></div>
 					<nav class="footer_nav">
 						<ul>
-							<li><a href="index.html">home</a></li>
-							<li><a href="categories.html">clothes</a></li>
-							<li><a href="categories.html">accessories</a></li>
-							<li><a href="categories.html">lingerie</a></li>
-							<li><a href="contact.html">contact</a></li>
+                            <li><!--<a href="index.html" style="color:#0e2737;">home</a>--></li>
+                            <li><a href="categories.html" style="color:#0e2737;">Home</a></li>
+                            <li><a href="categories.html" style="color:#0e2737;">About</a></li>
+                            <li><a href="categories.html" style="color:#0e2737;">Gallery</a></li>
+                            <li><a href="facility.html" style="color:#0e2737;">Facility</a></li>
+                            <li><a href="contact.html" style="color:#0e2737;">contact</a></li>
 						</ul>
 					</nav>
 					<div class="footer_social">
 						<ul>
-							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-pinterest" style="color:#0e2737;" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin" style="color:#0e2737;" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-instagram" style="color:#0e2737;" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-reddit-alien" style="color:#0e2737;" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter" style="color:#0e2737;" aria-hidden="true"></i></a></li>
 						</ul>
 					</div>
 					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Powered <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://9appsoft.com" target="_blank">9AppSoft</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 				</div>
 			</div>

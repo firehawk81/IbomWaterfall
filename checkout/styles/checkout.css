@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -970,26 +970,25 @@ section
 {
 	margin-left: 14px;
 }
-.cart_total_button
-{
-	width: 100%;
-	height: 47px;
-	border: solid 1px #b5b5b5;
-	outline: none;
-	background: #937c6f;
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: 0.2em;
-	margin-top: 13px;
-	font-size: 12px;
-	color: #FFFFFF;
-	cursor: pointer;
-	margin-top: 42px;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+.cart_total_button {
+    width: 100%;
+    height: 47px;
+    border: solid 1px #FFD700;
+    outline: none;
+    background: #0e2737;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-top: 13px;
+    font-size: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 42px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 .cart_total_button:hover
 {
@@ -1133,26 +1132,25 @@ section
 	font-style: italic;
 	color: #b3b3b3 !important;
 }
-.newsletter_button
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 142px;
-	height: 46px;
-	background: #937c6f;
-	color: #FFFFFF;
-	font-size: 12px;
-	letter-spacing: 0.2em;
-	text-transform: uppercase;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	-webkit-transition: all 200ms ease;
-	-moz-transition: all 200ms ease;
-	-ms-transition: all 200ms ease;
-	-o-transition: all 200ms ease;
-	transition: all 200ms ease;
+.newsletter_button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 142px;
+    height: 46px;
+    background: #eeca09;
+    color: #FFFFFF;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 .newsletter_button:hover
 {
