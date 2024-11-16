@@ -37,7 +37,7 @@
                     dataType: 'json',
 
                     success: function (data) {
-                    $("#roomRate").text(data.Rate);
+                    $("#roomRate").text("&#8358;"+data.Rate);
                     //$('#roomRate').number( 1234.5678 );
                     //console.log(data.Rate);
                    },
@@ -183,7 +183,7 @@
                 <div class="col-12">
                     <div id="divBody" class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
                         <h2 class="room-title">With Sunset view</h2>
-                        <h2 id="roomRate" class="room-price">&#8358;250,000<span>/Night</span></h2>
+                        <h2 id="roomRate" class="room-price"><span>/Night</span></h2>
                     </div>
                 </div>
             </div>
