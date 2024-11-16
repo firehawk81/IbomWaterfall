@@ -63,14 +63,14 @@
             $("#btnCheckAvailability").click(function () {
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:51014/checkout/cart.html/",
+                    url: "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/",
                     data: '{}',
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
                        //if (response.d == true) {
                             alert("You will now be redirected.");
-                            window.location = "http://localhost:51014/checkout/cart.html/";
+                            window.location = "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/";
                         //}
                     },
                     failure: function (response) {
