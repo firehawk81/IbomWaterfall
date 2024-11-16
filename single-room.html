@@ -37,8 +37,8 @@
                     dataType: 'json',
 
                     success: function (data) {
-                    $("#roomRate").html('&#8358;'+data.Rate);
-                    //$('#roomRate').number( 1234.5678 );
+                    //$("#roomRate").html('&#8358;'+data.Rate);
+                    $('#roomRate').number('&#8358;'+data.Rate);
                     //console.log(data.Rate);
                    },
                    error: function (xhr) {
