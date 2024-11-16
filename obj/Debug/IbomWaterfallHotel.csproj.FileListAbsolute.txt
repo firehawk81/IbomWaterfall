@@ -119,6 +119,5 @@ C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Micros
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Microsoft.AI.Web.xml
-C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Debug\IbomWaterfallHotel.csprojResolveAssemblyReference.cache
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Debug\IbomWaterfallHotel.dll
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Debug\IbomWaterfallHotel.pdb
