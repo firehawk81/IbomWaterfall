@@ -140,6 +140,11 @@
     <Content Include="checkout\images\best_2.jpg" />
     <Content Include="checkout\images\best_3.jpg" />
     <Content Include="checkout\images\best_4.jpg" />
+    <Content Include="checkout\images\budpay-logo-mixed.jpg" />
+    <Content Include="checkout\images\budpay-logo-mixed.png" />
+    <Content Include="checkout\images\budpay-logo-primary-white.jpg" />
+    <Content Include="checkout\images\budpay-logo-primary.jpg" />
+    <Content Include="checkout\images\budpay-logo-primary.png" />
     <Content Include="checkout\images\cart.jpg" />
     <Content Include="checkout\images\cart_nl.jpg" />
     <Content Include="checkout\images\cart_product_1.jpg" />
@@ -202,6 +207,7 @@
     <Content Include="checkout\index.html" />
     <Content Include="checkout\js\cart_custom.js" />
     <Content Include="checkout\js\categories_custom.js" />
+    <Content Include="checkout\js\checkout.js" />
     <Content Include="checkout\js\checkout_custom.js" />
     <Content Include="checkout\js\contact_custom.js" />
     <Content Include="checkout\js\custom.js" />
