@@ -62,8 +62,7 @@
         const radio_flutterwave = document.getElementById("radio_flutterwave");
         const radio_budpay = document.getElementById("radio_budpay");
 
-        if(radio_flutterwave.checked ) {
-            btnPayNow.onclick = function() {
+         function makePayment() {
 
             FlutterwaveCheckout({
               public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
@@ -94,7 +93,7 @@
               }
             });
           }
-        }
+
     //FLUTTERWAVE InlineJS Ends Here
 
     /*-----------------------------------------------------------------------------------------------  Seperator  */
@@ -114,7 +113,7 @@
                 callback: function(response) {
                 //this happens after the payment is completed successfully
                 var reference = response.reference;
-                alert('Payment complete! Reference: ' + reference + ', Status: ' + response.status);
+                //alert('Payment complete! Reference: ' + reference + ', Status: ' + response.status);
                   window.location.href = 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx?=reference'+response.reference;
                 },
                 onClose: function (response) {
@@ -315,18 +314,27 @@
 							</ul>
 						</div>
 						<div class="payment_options">
-							<!--<div style="margin-bottom:17px;">
-                                <input type="radio" id="radio_flutterwave" name="regular_radio" class="regular_radio">
+							<div style="margin-bottom:17px;"><label for="radio_flutterwave">PAY WITH</label>
+                                <!--<input type="radio" id="radio_flutterwave" name="regular_radio" class="regular_radio">
                                 <div class="master payment_option"><a href="#"><img src="images/Flutterwave_Logo.png" height="40" alt=""></a></div>
-                                <label for="radio_flutterwave"></label>
-							</div>-->
+                                <label for="radio_flutterwave"></label>-->
+
+                                <button id="btnPayNow" type="submit" onclick="makePayment()" class=" btn btn-primary btn-block ">
+                                    <img src="images/Flutterwave_Logo.png" height="30" alt="">
+                                </button>
+							</div>
 							<div>
-                                <input type="radio" id="radio_budpay" name="regular_radio" class="regular_radio" checked>
+                                <!--<input type="radio" id="radio_budpay" name="regular_radio" class="regular_radio" checked>
                                 <div class="master payment_option"> <a href="#"> <img src="images/budpay-logo-primary.png" height="30" alt=""> </a></div>
-                                <label for="radio_budpay"> </label>
+                                <label for="radio_budpay"> </label>-->
+
+                                <button id="btnPayNow" type="submit" onclick="payWithBudPay()" class=" btn btn-primary btn-block ">
+                                    <img src="images/budpay-logo-mixed.png" height="30" alt="">
+                                </button>
 							</div>
 							<!--<button id="btnPayNow" type="button" class="cart_total_button">Pay Now</button>-->
-                            <button id="btnPayNow" type="submit" onclick="payWithBudPay()" class="cart_total_button">Pay Now</button>
+                            <!--<button id="btnPayNow" type="submit" onclick="payWithBudPay()" class="cart_total_button">
+                            <img src="images/budpay-logo-mixed.png" height="30" alt=""></button>-->
                             <!--<button id="btnPayNow" onclick="payWithBudPay()" class="cart_total_button">Pay Now</button>-->
 						</div>
 					</div>
