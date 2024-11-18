@@ -115,7 +115,7 @@
                 //this happens after the payment is completed successfully
                 var reference = response.reference;
                 alert('Payment complete! Reference: ' + reference + ', Status: ' + response.status);
-                  //window.location.href = 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx?=reference'+reference+;
+                  window.location.href = 'https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx?=reference'+response.reference;
                 },
                 onClose: function (response) {
                 console.log(response);
