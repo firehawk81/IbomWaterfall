@@ -89,6 +89,8 @@
         const vat = _vat;
         const total = _total;
 
+        const refNo = sessionStorage('RefNo');
+
         var obj = { FirstName: firstName, LastName: lastName, Phone: phone, Email: email, Address: address, State: state, City: city, Country: country, Zipcode: zipcode, Remark: checkoutComment, RoomsList: roomsLst, SubTotal: subTotal, Vat: vat, Total: total };
             sessionStorage.setItem("Reservation", JSON.stringify(obj));
 
@@ -102,8 +104,8 @@
 
             FlutterwaveCheckout({
               public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
-              tx_ref: "txref-DI0NzMx13",
-              amount: 2500,
+              tx_ref: refNo,
+              amount: total,
               currency: "NGN",
               payment_options: "card, banktransfer, ussd",
               redirect_url: "https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx",  //"http://localhost:57264/verifications/flutter.aspx",
@@ -112,9 +114,9 @@
                 consumer_mac: "92a3-912ba-1192a",
               },
               customer: {
-                email: "test@mailinator.com",
-                phone_number: "08100000000",
-                name: "Ayomide Jimi-Oni",
+                email: email,
+                phone_number: phone,
+                name: firstName+" "+lastName,
               },
               customizations: {
                 title: "Ibom Waterfall Resort & Suites",
@@ -131,7 +133,34 @@
           }
 
     //FLUTTERWAVE InlineJS Ends Here
+        function InserReservations(e) {
+        e.preventDefault();
 
+        const url = "https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/api//DailySalesHotel";
+        const data = { FirstName: firstName, LastName: lastName, Phone: phone, Email: email, Address: address, State: state, City: city, Country: country, Zipcode: zipcode, Remark: checkoutComment, RoomsList: roomsLst, SubTotal: subTotal, Vat: vat, Total: total, RefNo: refNo };
+            //sessionStorage.setItem("Reservation", JSON.stringify(obj));
+
+        const other_params = {
+            headers : { "content-type" : "application/json; charset=UTF-8"},
+            body : data,
+            method : "POST",
+            mode : "cors"
+        };
+
+        fetch(url, other_params)
+            .then(function(response) {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Could not reach the API: " + response.statusText);
+            }
+        }).then(function(data) {
+            document.getElementById("message").innerHTML = data.encoded;
+        }).catch(function(error) {
+            document.getElementById("message").innerHTML = error.message;
+        });
+        return true;
+    }
     /*-----------------------------------------------------------------------------------------------  Seperator  */
 
     //BUDPAY InlineJS Starts Here
@@ -140,12 +169,12 @@
                 SaveSession();
         BudPayCheckout({
                 key: 'pk_test_bzac67e1dlry9t7izfjnarpxlwbbobylij7jwz', // Replace with your public key
-                email: document.getElementById('txtEmail').value,
-                amount: 95000, //document.getElementById('txtTotal').value,
-                first_name: document.getElementById('txtFirstName').value,
-                last_name: document.getElementById('txtLastName').value,
+                email: email,
+                amount: total, //document.getElementById('txtTotal').value,
+                first_name: firstName,
+                last_name: lastName,
                 currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
-                reference: '' + Math.floor((Math.random() * 100000000000) + 1) + new Date().getSeconds() + new Date().getMilliseconds(), // generates a pseudo-unique reference. Please replace with a reference you generated. or remove the line entirely so our API will generate one for you
+                reference: refNo, //'' + Math.floor((Math.random() * 100000000000) + 1) + new Date().getSeconds() + new Date().getMilliseconds(), // generates a pseudo-unique reference. Please replace with a reference you generated. or remove the line entirely so our API will generate one for you
                 callback: function(response) {
                 //this happens after the payment is completed successfully
                 var reference = response.reference;
@@ -153,9 +182,9 @@
                   window.location.href = 'http://localhost:57264/verifications/flutter.aspx?reference='+response.reference;
 
 
-                    //
-                        // Do the Reservation insert here POST
-                    //
+                        //
+                            // Do the Reservation insert here POST
+                        //
 
                 },
                 onClose: function (response) {
