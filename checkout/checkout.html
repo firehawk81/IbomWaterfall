@@ -90,7 +90,7 @@
         const vat = _vat;
         const total = _total;
 
-        const refNo = sessionStorage('RefNo');
+        //const refNo = sessionStorage('RefNo');
 
         var obj = { FirstName: firstName, LastName: lastName, Phone: phone, Email: email, Address: address, State: state, City: city, Country: country, Zipcode: zipcode, Remark: checkoutComment, RoomsList: roomsLst, SubTotal: subTotal, Vat: vat, Total: total };
             sessionStorage.setItem("Reservation", JSON.stringify(obj));
@@ -103,23 +103,21 @@
          function makePayment() {
                 SaveSession();
 
-
-
             FlutterwaveCheckout({
               public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
-              tx_ref: refNo,
-              amount: total,
+              tx_ref: "txref-DI0NzMx13", //refNo,
+              amount: 2500, //total,
               currency: "NGN",
               payment_options: "card, banktransfer, ussd",
-              redirect_url: "https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx",  //"http://localhost:57264/verifications/flutter.aspx",
+              redirect_url: "http://localhost:57264/verifications/flutter.aspx", // "https://195.201.81.237/plesk-site-preview/iwr.9appsoft.com/verifications/flutter.aspx",
               meta: {
                 source: "docs-inline-test",
                 consumer_mac: "92a3-912ba-1192a",
               },
               customer: {
-                email: email,
-                phone_number: phone,
-                name: firstName+" "+lastName,
+                email: "dto1981@hotmail.com", //email,
+                phone_number: 07032499237, //phone,
+                name: "David T. Ogundele", //firstName+" "+lastName,
               },
               customizations: {
                 title: "Ibom Waterfall Resort & Suites",
@@ -170,7 +168,7 @@
         //else if(radio_budpay.checked) {
         function payWithBudPay() {
                 SaveSession();
-        BudPayCheckout({
+            BudPayCheckout({
                 key: 'pk_test_bzac67e1dlry9t7izfjnarpxlwbbobylij7jwz', // Replace with your public key
                 email: email,
                 amount: total, //document.getElementById('txtTotal').value,
@@ -183,13 +181,9 @@
                 var reference = response.reference;
                 //alert('Payment complete! Reference: ' + reference + ', Status: ' + response.status);
                   window.location.href = 'http://localhost:57264/verifications/budpay.aspx?reference='+response.reference;
-
-
-
-                        //
-                            // Do the Reservation insert here POST
-                        //
-
+                    //
+                       // Do the Reservation insert here POST
+                    //
                 },
                 onClose: function (response) {
                 console.log(response);
