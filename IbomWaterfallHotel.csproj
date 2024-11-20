@@ -205,6 +205,7 @@
     <Content Include="checkout\images\Untitled-1.jpg" />
     <Content Include="checkout\images\visa.jpg" />
     <Content Include="checkout\index.html" />
+    <Content Include="checkout\inv.html" />
     <Content Include="checkout\js\cart_custom.js" />
     <Content Include="checkout\js\categories_custom.js" />
     <Content Include="checkout\js\checkout.js" />
@@ -255,6 +256,7 @@
     <Content Include="checkout\styles\checkout_responsive.css" />
     <Content Include="checkout\styles\contact.css" />
     <Content Include="checkout\styles\contact_responsive.css" />
+    <Content Include="checkout\styles\invoice-1.css" />
     <Content Include="checkout\styles\main_styles.css" />
     <Content Include="checkout\styles\product.css" />
     <Content Include="checkout\styles\product_responsive.css" />
