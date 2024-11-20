@@ -26,8 +26,9 @@
     <!--<script src="assets/js/jquery-3.7.1.min.js"></script>-->
 
     <script type="text/javascript">
-        $(document).ready(function () {
 
+        $(document).ready(function () {
+        const roomRate = 0;
             var id = (new URL(location.href)).searchParams.get('id');
             $( window ).on( "load", function() {
                 var html = "";
@@ -39,6 +40,7 @@
                     success: function (data) {
                     //var roomRate = data.Rate;
                     $("#roomRate").html('&#8358;'+data.Rate);
+                        roomRate = data.Rate;
                     //$('#roomRate').number(data.Rate);
                     //console.log(data.Rate);
                    },
@@ -50,14 +52,30 @@
             });
         });
 
+         //BookNowSingle() id="roomRate" id="guests" id="children" id="checkInDate" id="checkOutDate"
+        function SaveBookingSingleSession() {
 
+            const noOfRooms = 1;
+            const roomType = document.getElementById('roomType');
+            const singleTotal = document.getElementById('singleTotal');
+            const adults = document.getElementById('guests');
+            const children = document.getElementById('children');
+            const checkInDate = document.getElementById('checkInDate');
+            const checkOutDate = document.getElementById('checkOutDate');
+
+            const nights = checkOutDate.getTime() - checkInDate.getTime();
+            singleTotal = roomRate * nights * noOfRooms;
+            const nights = checkInDate * checkOutDate
+
+             sessionStorage.setItem(BookingInfoObj, JSON.stringify({Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
+        CheckInDate: checkInDate,CheckOutDate: checkOutDate, Nights: nights,RoomType: roomType}));
+        }
         //$("#btnCheckAvailability").click(function(){
         //  document.location.href = "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/";
         //});
 
     </script>
     
-
     <!--<script type="text/javascript">
         $(function () {
             $("#btnCheckAvailability").click(function () {
@@ -80,10 +98,6 @@
             });
         });
     </script>-->
-
-
-
-
 
     <style>
         .container2 {
@@ -396,7 +410,7 @@
                                             <input type="text" class="input-small form-control" name="checkInDate" id="checkInDate" placeholder="Check In">
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="input-small form-control" name="checkOutDate" placeholder="Check Out">
+                                            <input type="text" class="input-small form-control" name="checkOutDate" id="checkOutDate" placeholder="Check Out">
                                         </div>
                                     </div>
                                 </div>
@@ -439,7 +453,7 @@
                                 </div>
                             </div>-->
                             <div class="form-group">
-                                <a href="checkout/cart.html"id="btnCheckAvailability"  class="btn roberto-btn w-100">Check Available</a>
+                                <a href="checkout/cart.html"id="btnCheckAvailability" onclick="BookNowSingle()"  class="btn roberto-btn w-100">Book now</a>
                             </div>
                         </form>
                     </div>

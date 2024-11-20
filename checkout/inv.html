@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Invoice</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Wish shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/cart.css">
+    <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+    <link rel="icon" href="../img/core-img/ibw-logo.png">
+
+    <link href="styles/invoice-1.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .social-bg {
+            color: #0e2737;
+        }
+
+        .text-color-menu {
+            color: #0e2737;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row gutters">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="invoice-container">
+                            <div class="invoice-header">
+
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="custom-actions-btns mb-5">
+                                            <!--<a href="#" class="btn btn-primary">
+                                                <i class="icon-download"></i> Download
+                                            </a>-->
+                                            <a href="javascript:;" onclick="window.download()" class="btn btn-sm btn-primary m-b-10 p-l-5"><i class="fa fa-file t-plus-1 text-danger fa-fw fa-lg"></i> Export as PDF</a>
+                                            <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-warning m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                        <a href="index.html" class="invoice-logo">
+                                            <img src="images/ibw-logo.png" height="65" />
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <address class="text-right">
+                                            IBOM WATERFALL RESORT & SUITES <br />
+                                            Mao Ohuabunwa Street, <br>
+                                            442101 Ibom Arochukwu<br>
+                                            08084945237<br>
+                                            www.ibomwaterfallsuites.com
+                                        </address>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                                        <div class="invoice-details">
+                                            <address>
+                                                Alex Maxwell<br>
+                                                150-600 Church Street, Florida, USA
+                                            </address>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                                        <div class="invoice-details">
+                                            <div class="invoice-num">
+                                                <div>Invoice - #009</div>
+                                                <div>January 10th 2020</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+
+                            </div>
+
+                            <div class="invoice-body">
+
+                                <!-- Row start -->
+                                <div class="row gutters">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table m-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Room Type</th>
+                                                        <th class="text-center">Room No.</th>
+                                                        <th class="text-left">Night(s)</th>
+                                                        <th class="text-center">QTY</th>
+                                                        <th class="text-right">Sub Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            Wordpress Template
+                                                            <p class="m-0 text-muted">
+                                                                Reference 
+                                                            </p>
+                                                        </td>
+                                                        <td class="text-center">ROOM 202</td>
+                                                        <td class="text-left">#50000981</td>
+                                                        <td class="text-center">9</td>
+                                                        <td class="text-right">&#8358; 5000.00</td>
+                                                    </tr>
+                                                    <!--<tr>
+                                                        <td>
+                                                            Maxwell Admin Template
+                                                            <p class="m-0 text-muted">
+                                                                As well as a random Lipsum generator.
+                                                            </p>
+                                                        </td>
+                                                        <td>#50000126</td>
+                                                        <td>5</td>
+                                                        <td>$100.00</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            Unify Admin Template
+                                                            <p class="m-0 text-muted">
+                                                                Lorem ipsum has become the industry standard.
+                                                            </p>
+                                                        </td>
+                                                        <td>#50000821</td>
+                                                        <td>6</td>
+                                                        <td>$49.99</td>
+                                                    </tr>-->
+                                                    <tr>
+                                                        <td>&nbsp;</td>
+                                                        <td>&nbsp;</td>
+                                                        <td colspan="2">
+                                                            <p>
+                                                                Subtotal<br>
+                                                                Shipping &amp; Handling<br>
+                                                                Tax<br>
+                                                            </p>
+                                                            <h5 class="text-success"><strong>Grand Total</strong></h5>
+                                                        </td>
+                                                        <td>
+                                                            <p class="text-right">
+                                                                &#8358; 5000.00<br>
+                                                                &#8358; 100.00<br>
+                                                                &#8358; 49.00<br>
+                                                            </p>
+                                                            <h5 class="text-success text-right">&#8358;<strong> 5150.99</strong></h5>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Row end -->
+
+                            </div>
+
+                            <div class="invoice-footer">
+                                Thank you for your Business.
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="js/cart_custom.js"></script>
+</body>
+</html>
