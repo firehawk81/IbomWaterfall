@@ -103,6 +103,8 @@
          function makePayment() {
                 SaveSession();
 
+
+
             FlutterwaveCheckout({
               public_key: "FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X",
               tx_ref: refNo,
@@ -180,7 +182,7 @@
                 //this happens after the payment is completed successfully
                 var reference = response.reference;
                 //alert('Payment complete! Reference: ' + reference + ', Status: ' + response.status);
-                  window.location.href = 'http://localhost:57264/verifications/flutter.aspx?reference='+response.reference;
+                  window.location.href = 'http://localhost:57264/verifications/budpay.aspx?reference='+response.reference;
 
 
                         //
