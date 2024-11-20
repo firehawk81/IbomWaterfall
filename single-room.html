@@ -53,22 +53,15 @@
         });
 
          //BookNowSingle() id="roomRate" id="guests" id="children" id="checkInDate" id="checkOutDate"
-        function SaveBookingSingleSession() {
-
-            const noOfRooms = 1;
-            const roomType = document.getElementById('roomType');
+        function BookNowSingle() {
+            //const roomRate = document.getElementById('roomRate');
             const singleTotal = document.getElementById('singleTotal');
             const adults = document.getElementById('guests');
             const children = document.getElementById('children');
             const checkInDate = document.getElementById('checkInDate');
             const checkOutDate = document.getElementById('checkOutDate');
 
-            const nights = checkOutDate.getTime() - checkInDate.getTime();
-            singleTotal = roomRate * nights * noOfRooms;
-            const nights = checkInDate * checkOutDate
-
-             sessionStorage.setItem(BookingInfoObj, JSON.stringify({Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
-        CheckInDate: checkInDate,CheckOutDate: checkOutDate, Nights: nights,RoomType: roomType}));
+             sessionStorage.setItem(BookingInfoObj, JSON.stringify({Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children, CheckInDate: checkInDate,CheckOutDate: checkOutDate}));
         }
         //$("#btnCheckAvailability").click(function(){
         //  document.location.href = "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/";
