@@ -25,6 +25,11 @@
         }
     </style>
 
+    <script type="text/javascript">
+    var data = sessionStorage.getItem('BookingInfoObj');
+        console.log(data);
+    </script>
+
 </head>
 <body>
 
@@ -111,11 +116,11 @@
                                                         <td>
                                                             Wordpress Template
                                                             <p class="m-0 text-muted">
-                                                                Reference 
+                                                                Reference As well as a random Lipsum generator. Reference
                                                             </p>
                                                         </td>
-                                                        <td class="text-center">ROOM 202</td>
-                                                        <td class="text-left">#50000981</td>
+                                                        <td class="text-center">Executive 202</td>
+                                                        <td class="text-left">5</td>
                                                         <td class="text-center">9</td>
                                                         <td class="text-right">&#8358; 5000.00</td>
                                                     </tr>
@@ -147,8 +152,8 @@
                                                         <td colspan="2">
                                                             <p>
                                                                 Subtotal<br>
-                                                                Shipping &amp; Handling<br>
-                                                                Tax<br>
+                                                                Disc.<br>
+                                                                Tax (VAT)<br>
                                                             </p>
                                                             <h5 class="text-success"><strong>Grand Total</strong></h5>
                                                         </td>
@@ -171,7 +176,13 @@
                             </div>
 
                             <div class="invoice-footer">
-                                Thank you for your Business.
+                                Thank you for your Business.<br />
+
+                                <br /><h5 class="text-right"> PAY WITH</h5>
+                                <div class="custom-actions-btns">
+                                    <button type="submit" class="btn btn-sm btn-primary col-sm-3 m-b-10 p-l-5"><img src="images/Flutterwave_Logo.png" height="30" alt=""></button>
+                                    <button type="submit" class="btn btn-sm btn-primary col-sm-3 m-b-10 p-l-5"><img src="images/budpay-logo-mixed.png" height="30" alt=""></button>
+                                </div>
                             </div>
 
                         </div>

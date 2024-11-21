@@ -59,4 +59,3 @@ C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Micros
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\bin\Microsoft.AI.Web.xml
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Release\IbomWaterfallHotel.dll
 C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Release\IbomWaterfallHotel.pdb
-C:\Users\ADMIN\OneDrive\Documents\GitHub\IbomHotel\IbomWaterfallHotel\obj\Release\IbomWaterfallHotel.csprojResolveAssemblyReference.cache

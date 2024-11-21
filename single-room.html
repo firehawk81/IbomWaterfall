@@ -26,8 +26,8 @@
     <!--<script src="assets/js/jquery-3.7.1.min.js"></script>-->
 
     <script type="text/javascript">
-        const categoryName = '';
-        const roomRate = 0;
+        var categoryName = '';
+        var roomRate = 0;
 
         $(document).ready(function () {
         const roomRate = 0;
@@ -57,22 +57,27 @@
         });
 
          //BookNowSingle() id="roomRate" id="guests" id="children" id="checkInDate" id="checkOutDate"
-        function SaveBookingSingle_Session() {
+        function SaveBookingSingleSession() {
 
             const noOfRooms = 1;
-            const roomType = document.getElementById('roomType');
-            const singleTotal = document.getElementById('singleTotal');
-            const adults = document.getElementById('guests');
-            const children = document.getElementById('children');
-            const checkInDate = document.getElementById('checkInDate');
-            const checkOutDate = document.getElementById('checkOutDate');
+            //const roomType = categoryName
+            //const singleTotal = document.getElementById('singleTotal');
+            const adults = document.getElementById('guests').value;
+            const children = document.getElementById('children').value;
+            const checkInDate = new Date(document.getElementById("checkInDate").value);
+            const checkOutDate = new Date(document.getElementById("checkOutDate").value);
 
-            const nights = checkOutDate.getTime() - checkInDate.getTime();
+            roomRate = 45000; // Will be deleted later
+            const nights = checkOutDate.getDate() - checkInDate.getDate();
             singleTotal = roomRate * nights * noOfRooms;
-            const nights = checkInDate * checkOutDate
+            //const nights = checkInDate * checkOutDate
+            bookingData={Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
+                CheckInDate: checkInDate, CheckOutDate: checkOutDate, Nights: nights, RoomType: roomType}
 
-             sessionStorage.setItem(BookingInfoObj, JSON.stringify({Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
-        CheckInDate: checkInDate,CheckOutDate: checkOutDate, Nights: nights,RoomType: roomType}));
+                    //document.getElementById("demo").innerHTML = time;
+            sessionStorage.setItem('BookingInfoObj', JSON.stringify(bookingData));
+
+                window.location.href = 'checkout/cart.html';
         }
         //$("#btnCheckAvailability").click(function(){
         //  document.location.href = "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/";
@@ -233,7 +238,7 @@
             <div class="row h-100 align-items-end">
                 <div class="col-12">
                     <div id="divBody" class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
-                        <h2 id="roomType-" class="room-title">With Sunset view</h2>
+                        <label id="roomType" class="room-title">With Sunset view</label>
                         <h2 id="roomRate" class="room-price"><span>/Night</span></h2>
                     </div>
                 </div>
@@ -411,10 +416,10 @@
                                 <div class="input-daterange" id="datepicker">
                                     <div class="row no-gutters">
                                         <div class="col-6">
-                                            <input type="text" class="input-small form-control" name="checkInDate" id="checkInDate" placeholder="Check In">
+                                            <input type="date" class=" form-control" id="checkInDate" placeholder="Check In">
                                         </div>
                                         <div class="col-6">
-                                            <input type="text" class="input-small form-control" name="checkOutDate" id="checkOutDate" placeholder="Check Out">
+                                            <input type="date" class=" form-control" id="checkOutDate" placeholder="Check Out">
                                         </div>
                                     </div>
                                 </div>
@@ -457,7 +462,7 @@
                                 </div>
                             </div>-->
                             <div class="form-group">
-                                <a href="checkout/cart.html"id="btnCheckAvailability" onclick="BookNowSingle()"  class="btn roberto-btn w-100">Book now</a>
+                                <a id="btnBookNow" onclick="SaveBookingSingleSession()"  class="btn roberto-btn w-100">Book now</a>
                             </div>
 
                         </form>
