@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace IbomWaterfallHotel
+namespace IbomWaterfall_v1_Beta_1
 {
     public partial class Contact : Page
     {
