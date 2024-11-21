@@ -26,8 +26,9 @@
     <!--<script src="assets/js/jquery-3.7.1.min.js"></script>-->
 
     <script type="text/javascript">
-        var categoryName = '';
-        var roomRate = 0;
+
+        var roomRate;
+        var roomType;
 
         $(document).ready(function () {
         const roomRate = 0;
@@ -43,8 +44,9 @@
                     //var roomRate = data.Rate;
                     $("#roomRate").html('&#8358;'+data.Rate);
                     $("#roomType").html(data.CategoryName);
-                        roomRate = data.Rate;
-                        categoryName = data.CategoryName;
+                        sessionStorage.setItem('Rate',data.Rate);
+                        sessionStorage.setItem('RoomType',data.CategoryName);
+                      
                     //$('#roomRate').number(data.Rate);
                     //console.log(data.Rate);
                    },
@@ -58,26 +60,28 @@
 
          //BookNowSingle() id="roomRate" id="guests" id="children" id="checkInDate" id="checkOutDate"
         function SaveBookingSingleSession() {
+       var roomCategory = (new URL(location.href)).searchParams.get('id');
 
             const noOfRooms = 1;
-            //const roomType = categoryName
+            roomRate = sessionStorage.getItem('Rate');
+            roomType = sessionStorage.getItem('RoomType');
             //const singleTotal = document.getElementById('singleTotal');
             const adults = document.getElementById('guests').value;
             const children = document.getElementById('children').value;
             const checkInDate = new Date(document.getElementById("checkInDate").value);
             const checkOutDate = new Date(document.getElementById("checkOutDate").value);
 
-            roomRate = 45000; // Will be deleted later
+            //roomRate = 45000; // Will be deleted later
             const nights = checkOutDate.getDate() - checkInDate.getDate();
             singleTotal = roomRate * nights * noOfRooms;
             //const nights = checkInDate * checkOutDate
-            bookingData={Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
+            bookingData = {Rate: roomRate, SingleTotal: singleTotal, Adults: adults, Children: children,
                 CheckInDate: checkInDate, CheckOutDate: checkOutDate, Nights: nights, RoomType: roomType}
 
                     //document.getElementById("demo").innerHTML = time;
             sessionStorage.setItem('BookingInfoObj', JSON.stringify(bookingData));
 
-                window.location.href = 'checkout/cart.html';
+                        window.location.href = 'checkout/cart.html';
 
         }
         //$("#btnCheckAvailability").click(function(){
@@ -239,7 +243,7 @@
             <div class="row h-100 align-items-end">
                 <div class="col-12">
                     <div id="divBody" class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
-                        <label id="roomType" class="room-title">With Sunset view</label>
+                        <h2 id="roomType" class="room-title">With Sunset view</h2>
                         <h2 id="roomRate" class="room-price"><span>/Night</span></h2>
                     </div>
                 </div>
@@ -462,6 +466,15 @@
                                     </div>
                                 </div>
                             </div>-->
+                            <button class="minus">-</button><span id="number">1</span><button class="plus">+</button>
+                            <script>
+                                const minus = document.querySelector('.minus')
+                                const plus = document.querySelector('.plus');
+
+                                plus.addEventListener('click',() => document.getElementById("number").textContent++);
+
+                                minus.addEventListener('click',() => document.getElementById("number").textContent--);
+                            </script>
                             <div class="form-group">
                                 <a id="btnBookNow" onclick="SaveBookingSingleSession()"  class="btn roberto-btn w-100">Book now</a>
                             </div>
