@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("IbomWaterfallHotel")]
+[assembly: AssemblyTitle("IbomWaterfall_v1_Beta_1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("IbomWaterfallHotel")]
+[assembly: AssemblyProduct("IbomWaterfall_v1_Beta_1")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("847e2348-156c-4d29-9bf0-35193c9f79bb")]
+[assembly: Guid("5a214a4a-72b0-4d2f-a8d8-255c355a50b2")]
 
 // Version information for an assembly consists of the following four values:
 //

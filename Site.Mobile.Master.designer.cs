@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IbomWaterfallHotel {
+namespace IbomWaterfall_v1_Beta_1 {
     
     
     public partial class Site_Mobile {

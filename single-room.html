@@ -46,7 +46,7 @@
                     $("#roomType").html(data.CategoryName);
                         sessionStorage.setItem('Rate',data.Rate);
                         sessionStorage.setItem('RoomType',data.CategoryName);
-                      
+
                     //$('#roomRate').number(data.Rate);
                     //console.log(data.Rate);
                    },
@@ -60,7 +60,7 @@
 
          //BookNowSingle() id="roomRate" id="guests" id="children" id="checkInDate" id="checkOutDate"
         function SaveBookingSingleSession() {
-       var roomCategory = (new URL(location.href)).searchParams.get('id');
+       //var roomCategory = (new URL(location.href)).searchParams.get('id');
 
             const noOfRooms = 1;
             roomRate = sessionStorage.getItem('Rate');
@@ -84,12 +84,71 @@
                         window.location.href = 'checkout/cart.html';
 
         }
-        //$("#btnCheckAvailability").click(function(){
-        //  document.location.href = "https://firehawk81.github.io/IbomWaterfall/checkout/cart.html/";
-        //});
+
+            var count = 1;
+              function IncreaseRoom() {
+              count++;
+              document.getElementById("noOfRooms").value = count;
+           }
+
+
+                function increaseValue() {
+                    var value = parseInt(document.getElementById('number').value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value++;
+                    document.getElementById('number').value = value;
+                }
+
+                function decreaseValue() {
+                    var value = parseInt(document.getElementById('number').value, 10);
+                    value = isNaN(value) ? 0 : value;
+                    value < 1 ? value = 1 : '';
+                    value--;
+                        if (value > 1) {
+                            //* Decrease the value if it's greater than 0
+                            newValue = parseFloat(value) - 1;
+                        value = newValue;
+                        } else {
+                            //* You can't have negitive people Yo!
+                            newValue = 1;
+                        value = newValue;
+                        }
+                    document.getElementById('number').value = value;
+
+                }
 
     </script>
-    
+    <!--<script>
+        //* Increase the occupancy in booking widget
+                $(".increment").click(function() {
+                var $increment = $(this);
+                //* Get the current input value
+                var originalValue = $increment.parent().siblings("span").val();
+                //* Increase the value by 1
+                var newValue = parseFloat(originalValue) + 1;
+                //* Apply the value to the input field
+                $increment.parent().siblings("span").val(newValue);
+                });
+
+
+                //* Decrease the occupancy in booking widget
+                $(".decrement").click(function() {
+                var $decrement = $(this);
+                //* Get the current input value
+                var originalValue = $decrement.parent().siblings("span").val();
+                //* Init variable outide the conditional
+                var newValue;
+                if (originalValue > 0) {
+                    //* Decrease the value if it's greater than 0
+                    newValue = parseFloat(originalValue) - 1;
+                } else {
+                    //* You can't have negitive people Yo!
+                    newValue = 0;
+                }
+                //* Apply the value to the input field
+                $decrement.parent().siblings("span").val(newValue);
+                });
+    </script>-->
     <!--<script type="text/javascript">
         $(function () {
             $("#btnCheckAvailability").click(function () {
@@ -466,17 +525,20 @@
                                     </div>
                                 </div>
                             </div>-->
-                            <button class="minus">-</button><span id="number">1</span><button class="plus">+</button>
-                            <script>
-                                const minus = document.querySelector('.minus')
-                                const plus = document.querySelector('.plus');
-
-                                plus.addEventListener('click',() => document.getElementById("number").textContent++);
-
-                                minus.addEventListener('click',() => document.getElementById("number").textContent--);
-                            </script>
+                            
+                            <div class="mb-2">
+                                <fieldset class="rooms-holder">
+                                    <label>Rooms</label>
+                                    <div class="buttons">
+                                        <div class="decrement btn btn-dark" onclick="decreaseValue()">-</div>
+                                        <input class="col-sm-2" type="number" id="number" min="1" value="1" />
+                                        <div class="increment btn btn-dark" onclick="increaseValue()">+</div>
+                                    </div>
+                                </fieldset>
+                                
+                            </div>
                             <div class="form-group">
-                                <a id="btnBookNow" onclick="SaveBookingSingleSession()"  class="btn roberto-btn w-100">Book now</a>
+                                <a id="btnBookNow" onclick="SaveBookingSingleSession()"  class="btn btn-dark text-white w-100">Book now</a>
                             </div>
 
                         </form>
